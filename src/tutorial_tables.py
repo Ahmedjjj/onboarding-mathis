@@ -11,3 +11,15 @@ class Mouse(dj.Manual):
       dob: date                      # mouse date of birth
       sex: enum('M', 'F', 'U')    # sex of mouse - Male, Female, or Unknown/Unclassified
       """
+
+
+@schema
+class Session(dj.Manual):
+    definition = """
+    # experiment session
+    -> Mouse
+    session_date: date            # session date
+    ---
+    experiment_setup: int         # experiment setup ID
+    experimenter: varchar(128)    # name of the experimenter
+    """
