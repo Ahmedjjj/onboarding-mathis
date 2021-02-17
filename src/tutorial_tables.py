@@ -23,3 +23,12 @@ class Session(dj.Manual):
     experiment_setup: int         # experiment setup ID
     experimenter: varchar(128)    # name of the experimenter
     """
+
+
+@schema
+class Neuron(dj.Imported):
+    definition = """
+    -> Session
+    ---
+    activity:  longblob    # electric activity of the neuron
+    """
